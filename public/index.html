@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <!-- Faz a página se ajustar à largura da tela do celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alunos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Cadastro de Alunos</h1>
+
+        <!-- ========== Formulário de cadastro ========== -->
+        <section class="cartao">
+            <h2>Novo aluno</h2>
+
+            <form id="formAluno">
+
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="Nome do aluno" required>
+                </div>
+
+                <div class="campo">
+                    <label for="idade">Idade</label>
+                    <input type="number" id="idade" placeholder="Idade" min="1" required>
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="aluno@email.com" required>
+                </div>
+
+                <div class="campo">
+                    <label for="curso">Curso</label>
+                    <select id="curso" required>
+                        <option value="">Selecione um curso</option>
+                        <option>Análise e Desenvolvimento de Sistemas</option>
+                        <option>Ciência da Computação</option>
+                        <option>Sistemas de Informação</option>
+                        <option>Engenharia de Software</option>
+                        <option>Redes de Computadores</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="botao-cadastrar">Cadastrar</button>
+
+            </form>
+
+            <!-- Aviso de sucesso ou erro (preenchido pelo script.js) -->
+            <p id="mensagem" class="mensagem" role="status"></p>
+        </section>
+
+        <!-- ========== Lista de alunos ========== -->
+        <section class="cartao">
+
+            <div class="cabecalho-lista">
+                <h2>Alunos cadastrados</h2>
+                <span id="contador" class="contador"></span>
+            </div>
+
+            <!-- Campo de busca: filtra a tabela enquanto o usuário digita -->
+            <div class="campo">
+                <label for="busca">Buscar</label>
+                <input type="search" id="busca" placeholder="Digite um nome ou curso">
+            </div>
+
+            <div class="tabela-rolagem">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>E-mail</th>
+                            <th>Curso</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+
+                    <!-- As linhas são criadas pelo script.js -->
+                    <tbody id="listaAlunos"></tbody>
+                </table>
+            </div>
+
+            <!-- Aparece quando não há alunos para mostrar -->
+            <p id="listaVazia" class="lista-vazia"></p>
+
+        </section>
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

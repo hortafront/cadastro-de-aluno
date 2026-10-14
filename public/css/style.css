@@ -1,0 +1,202 @@
+/* ---------- Geral ---------- */
+
+/* Faz a largura dos elementos já incluir o padding e a borda */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    color: #222;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Centraliza o conteúdo e limita a largura em telas grandes */
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #1e3a5f;
+}
+
+h2 {
+    margin: 0 0 15px;
+    font-size: 20px;
+    color: #1e3a5f;
+}
+
+/* Bloco branco que separa o formulário e a lista */
+.cartao {
+    padding: 25px;
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ---------- Formulário ---------- */
+
+/* Organiza os campos em duas colunas */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Cada campo é um rótulo (label) em cima da caixa de digitação */
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    background: white;
+}
+
+/* Destaca o campo em que o usuário está digitando */
+input:focus,
+select:focus {
+    outline: 2px solid #2563eb;
+    border-color: #2563eb;
+}
+
+button {
+    padding: 10px;
+    font-size: 15px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Botão de cadastrar ocupa as duas colunas do formulário */
+.botao-cadastrar {
+    grid-column: 1 / -1;
+    background: #2563eb;
+}
+
+.botao-cadastrar:hover {
+    background: #1d4ed8;
+}
+
+
+/* ---------- Mensagens de aviso ---------- */
+
+/* Fica escondida até o script colocar a classe "sucesso" ou "erro" */
+.mensagem {
+    display: none;
+    margin: 15px 0 0;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.mensagem.sucesso {
+    display: block;
+    background: #dcfce7;
+    color: #166534;
+}
+
+.mensagem.erro {
+    display: block;
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+
+/* ---------- Lista de alunos ---------- */
+
+/* Título de um lado e contador do outro */
+.cabecalho-lista {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.contador {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Em telas pequenas a tabela rola para o lado em vez de quebrar a página */
+.tabela-rolagem {
+    margin-top: 15px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    font-size: 14px;
+    background: #f2f2f2;
+}
+
+/* Realça a linha em que o mouse está */
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+.botao-excluir {
+    padding: 6px 12px;
+    font-size: 14px;
+    background: #dc2626;
+}
+
+.botao-excluir:hover {
+    background: #b91c1c;
+}
+
+.lista-vazia {
+    margin: 15px 0 0;
+    text-align: center;
+    color: #666;
+}
+
+/* Não ocupa espaço quando não tem texto */
+.lista-vazia:empty {
+    display: none;
+}
+
+
+/* ---------- Celular ---------- */
+
+/* Em telas estreitas o formulário passa a ter uma coluna só */
+@media (max-width: 600px) {
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    .cartao {
+        padding: 18px;
+    }
+
+}
